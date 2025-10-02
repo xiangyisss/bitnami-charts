@@ -62,4 +62,5 @@ jobs:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
           charts_dir: bitnami
+          skip_existing: true
           
