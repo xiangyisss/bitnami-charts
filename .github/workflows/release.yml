@@ -54,4 +54,12 @@ jobs:
           echo ""
           echo "📊 Total charts found: $(find charts/ -name "Chart.yaml" | wc -l)"
           echo "✅ Workflow validation complete - ready for production!"
+
+      - name: Run chart-releaser
+        if: github.event_name == 'push'
+        uses: helm/chart-releaser-action@v1.6.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          charts_dir: bitnami
           
